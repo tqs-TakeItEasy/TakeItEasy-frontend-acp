@@ -12,18 +12,18 @@ function DeliveryDashboard() {
     const columns = [
         {
             title: 'Delivery ID',
-            dataIndex: 'deliveryId',
-            key: 'deliveryId',
+            dataIndex: 'id',
+            key: 'id',
         },
         {
-            title: 'Owner',
-            dataIndex: 'owner',
-            key: 'owner',
+            title: 'Owner Name',
+            dataIndex: 'userName',
+            key: 'userName',
         },
         {
-            title: 'PickUpPoint',
-            dataIndex: 'pickUpPoint',
-            key: 'pickUpPoint',
+            title: 'Owner Email',
+            dataIndex: 'userEmail',
+            key: 'userEmail',
         },
         {
             title: 'Status',
@@ -31,9 +31,15 @@ function DeliveryDashboard() {
             key: 'status',
         },
         {
+            title: 'Store',
+            dataIndex: 'store',
+            key: 'store',
+            render: (store) => store.name,
+        },
+        {
             title: 'Registry Date',
-            dataIndex: 'registryDate',
-            key: 'registryDate',
+            dataIndex: 'registeryDate',
+            key: 'registeryDate',
         },
         {
             title: 'Delivery Date',
@@ -42,63 +48,15 @@ function DeliveryDashboard() {
         },
         {
             title: 'PickUp Date',
-            dataIndex: 'pickUpDate',
-            key: 'pickUpDate',
+            dataIndex: 'pickupDate',
+            key: 'pickupDate',
         },
     ]
-
-    // dummy data
-    const dataSource = [
-        {
-          deliveryId: 1,
-          owner: 'Walter White',
-          pickUpPoint: '308 Negra Arroyo Lane',
-          status: 'Completed',
-          registryDate: '2008-01-20',
-          deliveryDate: '2008-02-10',
-          pickUpDate: '2008-01-25',
-        },
-        {
-          deliveryId: 2,
-          owner: 'Gustavo Fring',
-          pickUpPoint: 'Los Pollos Hermanos',
-          status: 'Completed',
-          registryDate: '2010-03-12',
-          deliveryDate: '2010-03-28',
-          pickUpDate: '2010-03-15',
-        },
-        {
-          deliveryId: 3,
-          owner: 'Jesse Pinkman',
-          pickUpPoint: 'RV',
-          status: 'Pending Pick Up',
-          registryDate: '2012-07-05',
-          deliveryDate: '2012-07-06',
-          pickUpDate: '----',
-        },
-        {
-          deliveryId: 4,
-          owner: 'Hank Schrader',
-          pickUpPoint: 'DEA Office',
-          status: 'Cancelled',
-          registryDate: '2009-09-18',
-          deliveryDate: '----',
-          pickUpDate: '----',
-        },
-        {
-          deliveryId: 5,
-          owner: 'Skyler White',
-          pickUpPoint: 'A1A Car Wash',
-          status: 'In Progress',
-          registryDate: '2011-05-02',
-          deliveryDate: '----',
-          pickUpDate: '----',
-        },
-      ];
+    const dataSource = [];
       
     const [data, setData] = useState(dataSource);
     const fetchData = async () => {
-        const response = await client.get('/deliveries/');
+        const response = await client.get('/deliveries/point/1/');
         setData(response.data);
         console.log(response.data); 
     };
