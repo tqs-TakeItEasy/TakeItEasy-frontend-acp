@@ -25,4 +25,4 @@ jobs:
           docker build -t takeiteasy-frontend-acp .
           docker stop tie-frontend-acp || true
           docker rm tie-frontend-acp || true
-          docker run -d --name tie-frontend-acp -p 8080:8080 takeiteasy-frontend-acp
+          docker run -d --name tie-frontend-acp -p 3000:3000 takeiteasy-frontend-acp
