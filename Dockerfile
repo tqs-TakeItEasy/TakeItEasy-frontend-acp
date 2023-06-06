@@ -11,4 +11,4 @@ RUN yarn build
 # Expose port 3000
 EXPOSE 3000
 # Start the app
-CMD ["yarn", "start"]
+CMD ["yarn", "preview"]
