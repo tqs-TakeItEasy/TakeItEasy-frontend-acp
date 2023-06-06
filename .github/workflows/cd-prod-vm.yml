@@ -20,7 +20,7 @@ jobs:
         username: ${{ secrets.VM_USERNAME }}
         password: ${{ secrets.VM_PASSWD }}
         script: |
-          cd ~/actions-runner/_work/TakeItEasy-frontend-acp/TakeItEasy-frontend-acp
+          cd ~/acp-runner/_work/TakeItEasy-frontend-acp/TakeItEasy-frontend-acp
           # Build and run the Docker image on the VM
           docker build -t takeiteasy-frontend-acp .
           docker stop tie-frontend-acp || true
